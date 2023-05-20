@@ -2,11 +2,6 @@ import numpy as np
 import cv2
 import math
 import threading
-
-def fillDA(DA, x):
-    for y in range(0, noise.shape[1]):
-            DA[x][y] = findDA(noise, x, y)
-    return
     
 def findDA(noise, x, y):
     res = 0
@@ -108,7 +103,6 @@ def VAC2(noise):
     #Phase II
     print("P2")
     rank = ones
-    
     while rank < (noise.shape[0]*noise.shape[1]/2):
         DA_W = -1+2**31
         DA_ARGW = [-1, -1]
@@ -148,11 +142,10 @@ Exp = []
 for i in range(0, 100000):
     Exp.append(np.exp(-i/4.5))
         
-#noise = cv2.imread("noise.png", cv2.IMREAD_GRAYSCALE)/255
-#b_noise = VAC1(noise)
-#cv2.imwrite("blue_noise.png", b_noise*255)
-b_noise = cv2.imread("blue_noise2.png", cv2.IMREAD_GRAYSCALE)/255
-print(b_noise)
+noise = cv2.imread("noise.png", cv2.IMREAD_GRAYSCALE)/255
+b_noise = VAC1(noise)
+cv2.imwrite("blue_noise.png", b_noise*255)
+b_noise = cv2.imread("blue_noise.png", cv2.IMREAD_GRAYSCALE)/255
 NDA = VAC2(b_noise)
 cv2.imwrite("DA.png", NDA)
 
