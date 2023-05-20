@@ -16,7 +16,7 @@ def text_to_img(text, imgsize, fontsize=24):
     msg = cv2.imread('./msg.png', cv2.IMREAD_GRAYSCALE)
     return msg
 
-arr = text_to_img("Sample text", (256, 256), 36)
-cv2.imwrite('./result1.png', arr)
-
-print(arr)
+# arr = text_to_img("Sample text", (256, 256), 36)
+# cv2.imwrite('./result1.png', arr)
+#
+# print(arr)
