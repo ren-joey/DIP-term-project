@@ -11,8 +11,8 @@ Filter = cv2.imread(filtername, cv2.IMREAD_GRAYSCALE)
 res = np.zeros((img.shape[0], img.shape[1]))
 for i in range(0, img.shape[0]):
     for j in range(0, img.shape[1]):
-        fi = i % img.shape[0]
-        fj = j % img.shape[1]
+        fi = i % Filter.shape[0]
+        fj = j % Filter.shape[1]
         if img[i][j] > Filter[fi][fj]:
             res[i][j] = 255
         else:

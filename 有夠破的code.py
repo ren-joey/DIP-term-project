@@ -89,9 +89,8 @@ def VAC2(noise):
     #Phase I
     print("P1")
     noise2 = np.copy(noise)
-            
+    DA2 = np.copy(DA)      
     while rank >= 0:
-        DA2 = np.copy(DA)
         DA_B = -1
         DA_ARGB = [-1, -1]
         for x in range(0, noise2.shape[0]):
@@ -105,6 +104,7 @@ def VAC2(noise):
         print(rank, DA_ARGB[0], DA_ARGB[1])
         updateDA(noise2, DA2, DA_ARGB[0], DA_ARGB[1])
         rank -= 1
+        
     #Phase II
     print("P2")
     rank = ones
@@ -140,18 +140,19 @@ def VAC2(noise):
         print(rank, DA_ARGW[0], DA_ARGW[1])
         updateDA(noise, DA, DA_ARGW[0], DA_ARGW[1])
         rank += 1
-    NDA = 255*(NDA+0.5)/rank
-    cv2.imwrite("DA_0.png", NDA)
+        
+    NDA = 255*(NDA+0.5)/(noise.shape[0]*noise.shape[1])
     return NDA.astype(int)
         
 Exp = []
 for i in range(0, 100000):
     Exp.append(np.exp(-i/4.5))
         
-noise = cv2.imread("noise.png", cv2.IMREAD_GRAYSCALE)/255
-b_noise = VAC1(noise)
-cv2.imwrite("blue_noise.png", b_noise*255)
-b_noise = cv2.imread("blue_noise.png", cv2.IMREAD_GRAYSCALE)/255
+#noise = cv2.imread("noise.png", cv2.IMREAD_GRAYSCALE)/255
+#b_noise = VAC1(noise)
+#cv2.imwrite("blue_noise.png", b_noise*255)
+b_noise = cv2.imread("blue_noise2.png", cv2.IMREAD_GRAYSCALE)/255
+print(b_noise)
 NDA = VAC2(b_noise)
 cv2.imwrite("DA.png", NDA)
 
