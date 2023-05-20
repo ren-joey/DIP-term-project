@@ -20,8 +20,8 @@ b = secret_img.shape[1]
 
 for i in range(a):
     for j in range(b):
+        num = random_01_generator()
         if (secret_img[i][j] >= 128):   # Seen as "W (White pixel)"
-            num = random_01_generator()
             if (num == 1):
                 rp1[i][j] = 255
                 rp2[i][j] = 255
