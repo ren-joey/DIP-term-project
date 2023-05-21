@@ -19,10 +19,11 @@ def merge(X1, X2):
 
 X1_name = sys.argv[1]
 X2_name = sys.argv[2]
+decode_name = sys.argv[3]
 
 X1 = cv2.imread(X1_name, cv2.IMREAD_GRAYSCALE)
 X2 = cv2.imread(X2_name, cv2.IMREAD_GRAYSCALE)
 
 decode_img = merge(X1, X2)
-cv2.imwrite('decode.png', decode_img)
+cv2.imwrite(decode_name, decode_img)
 
