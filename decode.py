@@ -2,9 +2,9 @@ import numpy as np
 import cv2
 import sys
 
-def max(a, b):
+def min(a, b):
     c = b
-    if (a >= b):
+    if (a <= b):
         c = a
     return c
 
@@ -14,7 +14,7 @@ def merge(X1, X2):
     res = np.zeros(X1.shape, dtype=np.uint8)
     for i in range(a):
         for j in range(b):
-            res[i][j] = max(X1[i][j], X2[i][j])
+            res[i][j] = min(X1[i][j], X2[i][j])
     return res
 
 X1_name = sys.argv[1]
