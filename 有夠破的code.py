@@ -82,7 +82,7 @@ def VAC2(noise):
         print(x)
         for y in range(0, noise.shape[1]):
             DA[x][y] = findDA(noise, x, y)
-            if  noise[x][y] == 0:
+            if noise[x][y] == 0:
                 ones += 1
     rank = ones-1
     
@@ -148,9 +148,9 @@ Exp = []
 for i in range(0, 100000):
     Exp.append(np.exp(-i/4.5))
         
-#noise = cv2.imread("noise.png", cv2.IMREAD_GRAYSCALE)/255
-#b_noise = VAC1(noise)
-#cv2.imwrite("blue_noise.png", b_noise*255)
+noise = cv2.imread("noise.png", cv2.IMREAD_GRAYSCALE)/255
+b_noise = VAC1(noise)
+cv2.imwrite("blue_noise.png", b_noise*255)
 b_noise = cv2.imread("blue_noise2.png", cv2.IMREAD_GRAYSCALE)/255
 print(b_noise)
 NDA = VAC2(b_noise)
