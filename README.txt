@@ -1,3 +1,9 @@
-有夠破的code a.k.a. VAC是按照"The void-and-cluster method for dither array generation"這篇論文寫的。
-VAC的兩個階段執行結果都是正確的。
-兩個階段執行時間約各10 min，可能需要用THREAD等手段加速
+有夠破的code僅做為紀錄留存。
+執行：
+python GenerateRP.py secret.png
+python VACHVC_1.py
+python VACHVC_2.py
+python preprocess.py [file1] [res1]
+python preprocess.py [file2] [res2]
+python Dither.py [res1] TA1.png X1.png
+python Dither.py [res2] TA2.png X2.png
