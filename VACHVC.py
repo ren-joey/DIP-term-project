@@ -232,10 +232,10 @@ Exp2 = np.array(Exp)
 #cv2.imwrite("SP2.png", SP2*255)
 
 print("Step 2")
-#TA1 = VAC2(SP1)
-#TA2 = VAC2(SP2)
-cv2.imwrite("TA1.png", TA1)
-cv2.imwrite("TA2.png", TA2)
+TA1 = VAC2(SP1)
+TA2 = VAC2(SP2)
+#cv2.imwrite("TA1.png", TA1)
+#cv2.imwrite("TA2.png", TA2)
 
 print("Step 3")
 image1_name = sys.argv[2]
